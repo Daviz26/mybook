@@ -1,0 +1,13 @@
+<% if current_user %>
+<h3>Welcome, <%= current_user.full_name.present? ? current_user.first_name : current_user.email %></h3>
+
+<% else %>
+  <div class="center jumbotron">
+    <h2>Welcome to My Book!</h2>
+    <p class="motto">
+      You'll love managing your friends with this application. 
+    </p>
+    </br>
+      <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-primary btn-xlarge" %>
+  </div>
+<% end %>

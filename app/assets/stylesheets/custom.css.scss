@@ -1,0 +1,230 @@
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.results-block {
+    display: inline-block;
+}
+
+.center {
+    text-align: center;
+}
+
+.jumbotron {
+    background-image: asset-url('flowers.jpg');
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+}
+
+.jumbotron h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+.motto {
+    color: #E9E9E9;
+    font-weight: bold;
+}
+
+
+
+// start Signup Form _________________________________________
+
+.no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.left-padding {
+    padding-left: 15px !important;
+}
+
+.bottom-padding {
+    padding-bottom: 10px !important;
+}
+
+
+.top-padding {
+    padding-top: 15px !important;
+}
+
+.right-padding {
+    padding-right: 45px !important;
+}
+
+.top-margin {
+    margin-top: 15px !important;
+}
+
+// end Signup Form ___________________________________________
+
+// start Navbar ______________________________________________
+
+.navbar.navbar-static-top {
+  background: #3B5998;
+  color: #fff !important;
+}
+
+.navbar-nav {
+
+    a {
+        color: #fff !important;
+    }
+
+    a:hover {
+        color: darken(#fff,15%) !important;
+    }
+}
+
+.navbar-brand {
+    color: darken(#fff,25%) !important;
+    padding-right: 50px !important;
+    font-weight:bold;
+}
+
+.fa.fa-rocket {
+  background-color: darken(#fff,10%) !important;
+  border: 3px solid #BFBFBF;
+  border-radius: 20px;
+  color: #3B5998;
+  padding: 0px;
+  
+}
+
+.user-name {
+  padding-top: 16px !important;
+  text-align: right;
+  font-size: 15px;
+}
+
+// end Navbar ______________________________________________
+
+// start Buttons ___________________________________________
+
+.btn-login {
+	-moz-border-radius:1px;
+	-webkit-border-radius:1px;
+	border-radius:1px;
+	border:2px solid #124d77;
+	display:inline-block;
+	color:#fff !important;
+	background-color:#5B74A8 !important;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:5px !important;
+}
+.btn-login:hover {
+	background-color: darken(#5B74A8,5%) !important;
+}
+
+
+.login {
+    list-style: none;
+    padding-top: 8px;
+}
+
+.logout {
+    list-style: none;
+    padding-top: 9px;
+}
+
+.btn-logout {
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+	border-radius:0px;
+	border:2px solid #124d77;
+	display:inline-block;
+	color: darken(#fff,15%) !important;
+	background-color: #5B74A8 !important;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:5px !important;
+}
+
+.btn-logout:hover {
+	
+	background-color: lighten(#5B74A8,10%) !important;
+	color: #fff !important;
+}
+
+
+.btn-follower {
+	background-color:#5B74A8 !important;
+	-moz-border-radius:1px;
+	-webkit-border-radius:1px;
+	border-radius:1px;
+	border:2px solid #124d77;
+	display:inline-block;
+	color:#fff !important;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding-top:4px;
+}
+.btn-follower:hover {
+	background-color: darken(#5B74A8,5%) !important;
+}
+
+
+.btn-xlarge {
+    font-size: 1.5em;
+    background-color: #3B5998;
+    color: #fff !important;
+}
+
+.btn-xlarge:hover {
+    font-size: 1.5em;
+    background-color: lighten(#3B5998,5%) !important;
+    color: #fff !important;
+}
+
+// end Buttons ______________________________________________
+
+// start Followers Page _____________________________________
+
+.left {
+    position: relative;
+    float: left;
+    clear: left;
+    list-style: none;
+    width: 370px;
+    margin-top: 42px;
+}
+
+.right {
+    position: relative;
+    float: right;
+    clear: right;
+    list-style: none;
+    width: 700px;
+    margin-top: 37.5px;
+    margin-bottom: 15px;
+}
+
+.divider{
+    position:absolute;
+    left:37.5%;
+    top:0.3%;
+    bottom:0.1%;
+    border-left:1px solid #E2E9ED;
+}
+
+
+.result-padding {
+    padding-right: 40px !important;
+}
+
+// end Followers Page _____________________________________
+
+
