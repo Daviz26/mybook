@@ -11,7 +11,7 @@ Rails.application.configure do
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false
+  config.action_mailer.delivery_method = :test
   config.action_mailer.default_url_options = { :host => 'https://completerubyonrailscourse-daviz26.c9users.io'}
   config.action_controller.perform_caching = false
 
