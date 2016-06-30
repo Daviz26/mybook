@@ -1,0 +1,18 @@
+<%# if current_user.admin? %>
+
+<%# if @photo.user.id == current_user.id %>
+
+     <% @photos.each do |photo| %>
+          <div class="xtra-width">
+               <div class="polaroid">
+                    <div class="photo">
+                         <%= link_to (image_tag photo.picture.url, size: "262x202"), photo_path(photo) %>
+                    </div>
+                    <div class="caption">
+                         <%= photo.caption %>
+                    </div>
+                </div>
+          </div>
+     <% end %>
+     
+<%# end %>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   devise_for :users, :controllers => { :registrations => "user/registrations" }
+  resources :users, only: [:show, :index, :destroy]
+  resources :photos
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

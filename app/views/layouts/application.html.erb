@@ -49,10 +49,13 @@
         <% if current_user %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Profile", "/path1"  %></li>
-            <li><%= link_to "Images", "/path2"  %></li>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Photos", photos_path %></li>
             <li><%= link_to "Friends", "/path3"  %></li>
             <li><%= link_to "Twitter", "/path3"  %></li>
+            <% if current_user.admin? %>
+              <li><%= link_to "Users", users_path %></li>
+            <% end %>
           </ul>
           <ul class="nav navbar-right col-md-4">
             <li class="col-md-8 user-name">

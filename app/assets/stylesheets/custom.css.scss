@@ -1,8 +1,8 @@
 
 body {
-  background-color: #fff;
+  background-color: #fafafa !important;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
   font-size: 13px;
   line-height: 18px;
 }
@@ -35,7 +35,9 @@ body {
     font-weight: bold;
 }
 
-
+.danger {
+    color: #cc0303 !important;
+}
 
 // start Signup Form _________________________________________
 
@@ -191,7 +193,123 @@ body {
 
 // end Buttons ______________________________________________
 
+
 // start Followers Page _____________________________________
+.result-padding {
+    padding-right: 40px !important;
+}
+// end Followers Page _____________________________________
+
+
+
+/* start Images Page ---------------------------------------- */
+.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 30px;
+  border-radius: 5px;
+  float: left;
+  margin-right: 30px;
+}
+
+.xtra-width {
+  width: 110% !important;
+  margin-top: 30px;
+}
+
+.photo {
+}
+
+.caption {
+  padding: 15px;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* start full photo ---*/
+
+.photo-area {
+  float: left;
+}
+
+.full_photo {
+}
+
+.edit-links {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.comments-area {
+  height: 525px;
+  background-color: #F6F7F9;
+}
+
+.fa.fa-times{
+  color: black;
+  font-size: 20px;
+}
+
+.time-ago {
+  color: #A5A7AA;
+  float: right;
+}
+
+.commenter-name {
+  font-weight: 500;
+  margin-right: 0;
+  color: #125688;
+  font-size: 15px;
+  display: inline;
+  padding-left: 15px;
+  }
+  
+.fa.fa-trash-o {
+  color: black;
+  padding-left: 20px;
+  padding-right: 15px;
+}
+
+.comment-form {
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #EEEFEF;
+}
+
+.fa.fa-heart-o{
+  color: red;
+  font-size: 20px;
+  padding-left: 15px;
+  padding-top: 7px;
+}
+
+.comment-field {
+  padding-left: 1px;
+}
+/* end full photo ---*/
+/* end Images Page ---------------------------------------- */
+
+
+
+
+/* start Users Page ---------------------------------------- */
+.all-users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid #E2E9ED;
+  }
+  .danger {
+    color: #cc0303;
+  }
+}
+/* end Users Page ---------------------------------------- */
+
+
+/* start Profile Page --------------------------------------*/
 
 .left {
     position: relative;
@@ -199,32 +317,223 @@ body {
     clear: left;
     list-style: none;
     width: 370px;
-    margin-top: 42px;
 }
-
 .right {
     position: relative;
     float: right;
     clear: right;
     list-style: none;
     width: 700px;
-    margin-top: 37.5px;
-    margin-bottom: 15px;
 }
-
 .divider{
     position:absolute;
     left:37.5%;
-    top:0.3%;
+    top:0%;
     bottom:0.1%;
     border-left:1px solid #E2E9ED;
 }
 
-
-.result-padding {
-    padding-right: 40px !important;
+aside {
+h1 {
+    font-size: 1.4em;
+    text-align: left;
+    letter-spacing: -1px;
+    margin-bottom: 3px;
+    margin-top: 0px;
+  }
 }
 
-// end Followers Page _____________________________________
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+
+/* start microposts ------------*/
+.micropost-bg {
+   background-color: #e6f5f5;
+}
+.microposts {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #98d5f9;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: green;
+    display: block;
+    margin-left: 60px;
+  }
+  .danger {
+    color: #cc0303;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+/* end microposts ------*/
+/* end Profile Page --------------------------------------*/
+
+
+
+/* start Twitter Page --------------------------------------*/
+.t-div {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #e1e8ed;
+    border-radius: 6px;
+    height: 407px;
+    width: 100%;
+    margin-bottom: 100px;
+}
+.t-bg {
+    background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
+    background-position: 0 50%;
+    background-size: 100% auto;
+    border-bottom: 1px solid #e1e8ed;
+    border-radius: 4px 4px 0 0;
+    height: 350px;
+    width: 100%;
+}
+.t-block {
+    display: block !important;
+}
+.t-btn-follow {
+    margin: -35px -10px 0;
+    text-align: right;
+    width: 100%;
+}
+.t-img-container {
+    background-color: #fff;
+    border-radius: 6px;
+    display: inline-block !important;
+    float: left;
+    margin-top: -130px;
+    padding: 2px;
+    vertical-align: bottom;
+}
+.t-img {
+    border: 2px solid #fff;
+    border-radius: 7px;
+    box-sizing: border-box;
+    color: #fff;
+    height: 200px;
+    width: 200px;
+}
+
+.t-name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    padding-left: 92px;
+}
+.t-name a {
+    color: inherit !important;
+}
+
+.t-username {
+    padding-left: 92px;
+}
+
+
+.t-stats {
+    box-sizing: border-box;
+    display: table;
+    margin: 0;
+    min-width: 100%;
+    padding: 0;
+    table-layout: auto;
+    padding-top: 10px;
+}
+.t-stats ul {
+    list-style: outside none none;
+}
+.t-stats li {
+    display: table-cell;
+    padding: 0 0 0 50px ;
+    vertical-align: top;
+}
+.t-stats li a:hover {
+    text-decoration: none;
+}
+.t-StatValue {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.15s ease-in-out 0s;
+}
+.t-StatLabel {
+    color: #8899a6;
+    font-size: 10px;
+    letter-spacing: 0.02em;
+    overflow: hidden;
+    text-transform: uppercase;
+    transition: color 0.15s ease-in-out 0s;
+}
+/* end Twitter Page --------------------------------------*/
+
+
+
+
+
+
+
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid gray;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
 
 
