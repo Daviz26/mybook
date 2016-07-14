@@ -2,17 +2,25 @@
 
 <%# if @photo.user.id == current_user.id %>
 
-     <% @photos.each do |photo| %>
-          <div class="xtra-width">
-               <div class="polaroid">
-                    <div class="photo">
-                         <%= link_to (image_tag photo.picture.url, size: "262x202"), photo_path(photo) %>
-                    </div>
-                    <div class="caption">
-                         <%= photo.caption %>
-                    </div>
-                </div>
-          </div>
-     <% end %>
+<% @photos.each do |photo| %>
+<div class="xtra-width">
+  <div class="polaroid">
+    <div class="photo">
+         <%= link_to (image_tag photo.picture.url, size: "262x202"), photo_path(photo) %>
+    </div>
+    <div class="caption">
+      <span class="blur-number pull-left">
+        <i class='fa fa-comments no-padding'></i>
+        <%= photo.comments.size %>
+      </span>
+      <%= photo.caption %>
+      <span class="blur-number pull-right">
+        <i class='fa fa-heart no-padding blur-heart'></i>
+        <%= photo.get_likes.size %>
+      </span>
+    </div>
+  </div>
+</div>
+<% end %>
      
 <%# end %>

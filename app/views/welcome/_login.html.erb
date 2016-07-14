@@ -1,0 +1,43 @@
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    
+    <%= link_to ("<i class='fa fa-book'></i> " +'My Book').html_safe, root_path, class: "navbar-brand" %>
+    
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="login-area top-padding pull-right">
+        <ul>
+          <li class="email-pad"> 
+            <%= f.label :email %>
+            <span class="input-clr">
+              <%= f.email_field :email, autofocus: true %>
+            </span>
+            <% if devise_mapping.rememberable? %>
+              <div class="checkbox remember-me">
+                <%= f.label :remember_me do %>
+                  <%= f.check_box :remember_me %>remember me
+                <% end %>
+              </div>
+            <% end %>
+          </li>
+                  
+          <li class="pass-pad">   
+            <%= f.label :password %>
+            <span class="input-clr">
+              <%= f.password_field :password, autocomplete: "off", wrapper_html: { id: 'password' } %>
+            </span>
+            <% if devise_mapping.rememberable? %>
+              <div class="forgot-password">
+                <%= link_to t(".forgot_your_password", :default => "Forgot your password?"), new_password_path(resource_name) %>
+              </div>
+            <% end %>
+          </li>
+                  
+          <li class="pull-right">
+            <%= f.submit "Log In", class: 'btn btn-login' %>
+          </li>
+                  
+        </ul>
+      </div>
+    <% end %> 
+  </div>
+</div>

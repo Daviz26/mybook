@@ -3,13 +3,37 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "user/registrations" }
   resources :users, only: [:show, :index, :destroy]
   resources :photos
+  
+  resources :photos do 
+    resources :comments
+    member do
+      get 'like'
+      get 'unlike'
+    end
+  end
+  
+  resources :posts, only: [:create, :destroy]
+  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
+  resources :relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-
+  # For replacing the "/user/1" path as "/username"
+  get ':user_name', to: 'users#show', as: :profile
+  # For replacing the "user/1/following" path as "username/following"
+  get ':user_name/following', to: 'users#following', as: :following
+  # For replacing the "user/1/followers" path as "username/followers
+  get ':user_name/followers', to: 'users#followers', as: :followers
+    
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

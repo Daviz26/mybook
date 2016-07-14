@@ -14,6 +14,8 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 
+gem 'simple_form'
+
 # Pagination
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
@@ -24,6 +26,9 @@ gem 'carrierwave'
 gem 'mini_magick' 
 # images in production
 gem 'fog'
+
+# For adding Likes % Dislikes
+gem 'acts_as_votable', '~> 0.10.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

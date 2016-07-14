@@ -1,0 +1,13 @@
+<% if @photo.comments %>
+<% @photo.comments.each do |comment| %>
+  <div>
+    <div class="commenter-name">
+      <%= link_to comment.user.user_name, profile_path(comment.user.user_name) %>
+    </div>
+    <span class="comment">
+      <%= comment.content %>
+      <%= link_to ("<i class='fa fa-trash-o pull-right' aria-hidden='false'></i>").html_safe, photo_comment_path(@photo, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+    </span>
+  </div>
+<% end %>
+<% end %> 

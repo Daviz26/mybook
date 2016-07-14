@@ -1,0 +1,31 @@
+<div class="total-width">
+<%= will_paginate %>
+
+<% @users.each do |user| %>
+  <div class="col-md-3 all-users">
+    <div class="avatar-area pull-left">
+      <%#= gravatar_for user, size: 50 %>
+      <%= link_to (image_tag user.avatar.url, size: "160x175"), profile_path(user.user_name) %>
+    </div>
+    <div class="name-area">
+      <span class="name"><%= link_to user.full_name, profile_path(user.user_name) %></span></br>
+      <span class="username">@<%= user.user_name %></span></br></br>
+      <span class="stats"><i class="fa fa-male"></i> <%= user.followers.count %>
+      <span class="red">&nbsp;|&nbsp;</span>
+      <i class="fa fa-pencil"></i> <%= user.posts.count %>
+      <span class="red">&nbsp;|&nbsp;</span>
+      <i class="fa fa-picture-o"></i> <%= user.photos.count %></span></br></br>
+        <%#= render 'users/following/follow_button' if current_user %>
+      <span class="delete">
+      <% if current_user.admin? %>  
+        <%= link_to "remove user", user, method: :delete, data: { confirm: "You sure?" } %>
+      <% end %>
+      </span>
+    </div>
+  </div>
+<% end %>
+
+<%= will_paginate %>
+</div>
+
+

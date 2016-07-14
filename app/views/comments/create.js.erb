@@ -1,0 +1,13 @@
+$('#comment_content_<%= @photo.id %>').val('')
+$('#comment_content_<%= @photo.id %>').blur();
+Append.comment_count += 1
+$(Append.id).attr('data-value', Append.comment_count);
+
+if (Append.comment || Append.open ){ $('#comments_<%= @photo.id %>').append("<%=j render 'comments/comment', photo: @photo, comment: @comment %>"); }
+
+else if ((Append.comment && Append.open) === false && Append.link === true) { 
+	$('#comments_' + Append.photo_id).append("<div class='paginator' id='#comments-paginator-" + Append.photo_id + "'><a class='more-comments' id='more_comments_" + Append.photo_id + "' data-photo-id='" + Append.photo_id + "' data-type='html' data-remote='true' data-value='" + Append.comment_count + "' href='/photos/" + Append.photo_id + "/comments'>view all " + Append.comment_count + " comments</a></div>"); 
+	ClickableCommentsLink(); 
+}
+
+else if ((Append.comment && Append.open && Append.link) === false) { $('#more_comments_<%= @photo.id %>').html("view all <%= @photo.comments.count %> comments"); }

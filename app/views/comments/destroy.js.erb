@@ -1,0 +1,2 @@
+$('#comments_<%= @photo.id %>').html("<%= j render @photo.comments, photo: @photo, comment: @comment %>");
+Append.comment_count -= 1

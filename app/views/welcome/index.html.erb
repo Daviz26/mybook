@@ -1,13 +1,32 @@
 <% if current_user %>
-<h3>Welcome, <%= current_user.full_name.present? ? current_user.first_name : current_user.email %></h3>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title><%= content_for?(:title) ? yield(:title) : "MyBook" %></title>
+      <%= csrf_meta_tags %>
+    </head>
+    <body class="welcome-bg">
+        <h3>Welcome, <%= current_user.full_name.present? ? current_user.first_name : current_user.email %></h3>
+    </body>
+  </html>
 
 <% else %>
-  <div class="center jumbotron">
-    <h2>Welcome to My Book!</h2>
-    <p class="motto">
-      You'll love managing your friends with this application. 
-    </p>
-    </br>
-      <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-primary btn-xlarge" %>
-  </div>
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title><%= content_for?(:title) ? yield(:title) : "MyBook" %></title>
+      <%= csrf_meta_tags %>
+    </head>
+    <body class="reg-bg">
+      <%= render 'welcome/signup' %> 
+    </body>
+  </html>
+
 <% end %>

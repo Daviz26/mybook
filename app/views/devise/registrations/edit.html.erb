@@ -15,24 +15,36 @@
           <%= f.text_field :last_name, class: "form-control" %>
         </div>
       </div>         
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
-      </div>
+      <div class="form-group no-padding">
+        <div class="col-md-6 no-padding bottom-padding">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="col-md-6 no-padding left-padding bottom-padding">
+          <%= f.label :user_name %>
+          <%= f.text_field :user_name, required: true, class: "form-control" %>
+        </div>
+      </div> 
       <div class="form-group">
         <div class="col-md-6 no-padding bottom-padding">
         <%= f.label :password %><br />
         <%= f.password_field :password, class: "form-control" %>
-      </div>
+        </div>
         <div class="col-md-6 no-padding left-padding bottom-padding">
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
       </div> 
       <div class="form-group">
+        <div class="col-md-6 no-padding bottom-padding">
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
+        </div> 
+        <div class="col-md-6 no-padding left-padding bottom-padding">
         <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes') %>)</i>
         <%= f.password_field :current_password, class: "form-control" %>
-      </div>      
+        </div>
+      </div>
       <%= f.submit t('.update', :default => "Update"), class: "btn btn-primary" %>
     <% end %>
   </div>

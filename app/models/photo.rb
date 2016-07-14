@@ -4,6 +4,9 @@ class Photo < ActiveRecord::Base
   validate :picture_size
   validates :user_id, presence: true
   default_scope -> { order(created_at: :desc) }
+  
+  has_many :comments, dependent: :destroy
+  acts_as_votable
 
    private
 

@@ -4,18 +4,33 @@ class UsersController < ApplicationController
     before_action :admin_user, only: :destroy
     
     def show
-        @user = User.find(params[:id])
-        #@microposts = @user.microposts.paginate(page: params[:page])
+      @user = User.find_by(user_name: params[:user_name])
+      @posts = @user.posts
+      current_user.user_name == "You"
     end
     
     def index
-        @users = User.paginate(page: params[:page])
+      @users = User.paginate(page: params[:page])
     end
     
     def destroy
-        User.find(params[:id]).destroy
-        flash[:success] = "User deleted"
-        redirect_to users_url
+      User.find(params[:id]).destroy
+      flash[:success] = "User deleted"
+      redirect_to users_url
+    end
+    
+    def following
+      @title = "Following"
+      @user = User.find_by(user_name: params[:user_name])
+      @users = @user.following.paginate(page: params[:page])
+      render 'users/following/show_following'
+    end
+
+    def followers
+      @title = "Followers"
+      @user = User.find_by(user_name: params[:user_name])
+      @users = @user.followers.paginate(page: params[:page])
+      render 'users/following/show_followers'
     end
     
     # Confirms an admin user.

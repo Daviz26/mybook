@@ -1,0 +1,14 @@
+<div class="likes-area">
+  <div class="likers">
+    <%# Defined in helpers/photos_helper.rb %> 
+      <%= likers_of @photo %>
+  </div>
+  
+  <div class="heart pull-right">
+      <% if current_user.voted_for?(@photo) %>
+      <%= link_to '', unlike_photo_path(@photo.id), class: "#{unliked_photo @photo}",  id: "unlike_#{@photo.id}" %> 
+      <% else %>
+      <%= link_to '', like_photo_path(@photo.id), class: "#{liked_photo @photo}", id: "like_#{@photo.id}" %> 
+      <% end %>
+  </div>
+</div>

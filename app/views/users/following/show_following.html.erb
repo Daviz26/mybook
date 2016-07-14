@@ -1,0 +1,5 @@
+<h3><%= @title %> (<%= @user.following.count %>)</h3>
+<% if @users.any? %>
+    <%= render 'users/all_users' %>
+  <%= will_paginate %>
+<% end %>

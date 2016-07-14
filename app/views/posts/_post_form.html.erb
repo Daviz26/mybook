@@ -1,0 +1,19 @@
+<%= form_for(Post.new, html: { multipart: true }) do |f| %>
+  <%= render 'posts/error_messages', object: f.object %>
+  
+  <div class="col-md-12 top-padding bottom-padding">
+    <%= f.text_area :content, rows: 3, class: "form-control", placeholder: "What's happening?" %>
+  </div>
+  
+  <div>
+    <div class="col-md-6">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
+    <div class="col-md-6 bottom-padding">
+      <%= f.submit "Post", class: "btn-sml btn-success pull-right" %>
+    </div>
+  </div>
+
+<% end %>
+
+

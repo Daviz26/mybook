@@ -1,0 +1,10 @@
+<% #This will hide the follow button for the current user %>
+<% unless current_user.user_name == @user.user_name %>
+      <div id="follow_form">
+  <% if current_user.following?(@user) %>
+    <%= render 'users/following/unfollow' %>
+  <% else %>
+    <%= render 'users/following/follow' %>
+  <% end %>
+<% end %>
+

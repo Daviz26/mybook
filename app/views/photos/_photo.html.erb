@@ -1,0 +1,24 @@
+<div class="photo-top">
+  <div class="commenter-name pull-left">
+    <%= link_to @photo.user.full_name, profile_path(@photo.user.user_name) %>
+  </div>
+  <%= @photo.caption %>
+  <div class="time-ago pull-right">
+    <%= time_ago_in_words @photo.created_at %> ago
+  </div>
+</div>
+
+<div class="full_photo">
+    <%= image_tag @photo.picture.url, size: "800x600", class:'###img-responsive' %>
+</div>
+
+<% if @photo.user.id == current_user.id %>
+    <div class="edit-links">
+        <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_photo_path(@photo) %>
+        | <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+            photo_path(@photo),
+            :method => 'delete',
+            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, 
+            :class => 'danger' %>
+    </div>
+<% end %>
