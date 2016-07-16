@@ -20,19 +20,26 @@ module PhotosHelper
 
       if votes.count == 1 and current_user.voted_for? photo
         user_names[-1].replace("You")
-        user_names.last.html_safe + " like this."
+        user_names.first.html_safe + " like this."
       else if votes.count == 1 
-        (link_to user_names.last.html_safe, profile_path(user_names)) + " likes this."
+        (link_to user_names.first.html_safe, profile_path(user_names)) + " likes this."
       else if votes.count == 2 and current_user.voted_for? photo
         user_names[-1].replace("You") 
-        user_names.last.html_safe + " and " + (link_to user_names.first.html_safe, profile_path(user_names)) + " like this."
+        user_names[-1].html_safe + " and " + (link_to user_names[-2].html_safe, profile_path(user_names)) + " like this."
       else if votes.count == 2 
-        (link_to user_names.last.html_safe, profile_path(user_names)) + " and " + (link_to user_names.first.html_safe, profile_path(user_names)) + " like this."
-      else if votes.count > 2 and current_user.voted_for? photo
+        (link_to user_names[-1].html_safe, profile_path(user_names)) + " and " + (link_to user_names[-2].html_safe, profile_path(user_names)) + " like this."
+      else if votes.count ==3 and current_user.voted_for? photo
         user_names[-1].replace("You")
-        user_names.last.html_safe + ", " + (link_to user_names.first.html_safe, profile_path(user_names)) + " and" + " #{votes.count-2} others like this."
-      else if votes.count > 2 
-        (link_to user_names.last.html_safe, profile_path(user_names)) + ", " + (link_to user_names.first.html_safe, profile_path(user_names)) + " and" + " #{votes.count-2} others like this."
+        user_names[-1].html_safe + ", " + (link_to user_names[-2].html_safe, profile_path(user_names)) + " and " + (link_to user_names[-3].html_safe, profile_path(user_names)) + " like this."
+      else if votes.count == 3 
+        (link_to user_names[-1].html_safe, profile_path(user_names)) + ", " + (link_to user_names[-2].html_safe, profile_path(user_names)) + " and " + (link_to user_names[-3].html_safe, profile_path(user_names)) + " like this."
+      else if votes.count > 3 and current_user.voted_for? photo
+        user_names[-1].replace("You")
+        user_names[-1].html_safe + ", " + (link_to user_names[-2].html_safe, profile_path(user_names)) + " and " + " #{votes.count-2} others like this."
+      else if votes.count > 3 
+        (link_to user_names[-1].html_safe, profile_path(user_names)) + ", " + (link_to user_names[-2].html_safe, profile_path(user_names)) + " and " + " #{votes.count-2} others like this."
+      end
+      end
       end
       end
       end

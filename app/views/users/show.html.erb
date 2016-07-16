@@ -1,67 +1,55 @@
 <!-- code start -->
 <div class="p-div">
 	
-	<% if @user.user_name == "daviz26" %>
-	<a class="p-bg1 p-block"></a>
-	<% else if @user.user_name == "007" %>
-  <a class="p-bg2 p-block"></a>
-	<% else if @user.user_name == "221B" %>
-  <a class="p-bg3 p-block"></a>
-	<% else if @user.user_name == "rumaholic" %>
-  <a class="p-bg4 p-block"></a>
-	<% else if @user.user_name == "KingofTheNorth" %>
-  <a class="p-bg5 p-block"></a>
-	<% end %>	
-	<% end %>
-	<% end %>	
-	<% end %>
-	<% end %>
-	
-		<div class="p-stats">
-			<ul>
-				<li>
-					<span class="p-img-container"><%= link_to (image_tag @user.avatar.url, size: "200x220"), profile_path(@user.user_name) %></span>
-				<li>
-					<span class="p-StatLabel p-block">Posts</span>
-					<span class="p-StatValue"><%= link_to @user.posts.count, profile_path(@user.user_name) %></span>
-				</li>
-				<li>
-					<span class="p-StatLabel p-block">Following</span>
-					<span class="p-StatValue"><%= link_to @user.following.count, following_path(@user.user_name), id: "following" %></span>
-				</li>
-				<li>
-					<span class="p-StatLabel p-block">Followers</span>
-					<span class="p-StatValue"><%= link_to @user.followers.count, followers_path(@user.user_name), id: "followers" %></span>
-				</li>
-				<li class="p-btn-follow no-padding">
-				  <%= render 'users/following/follow_button' if current_user %>
-				</li>
-			</ul>
-			
-		</div>
-
-    <div class="p-name">
-	    <%= link_to @user.full_name, profile_path(@user.user_name) %>
-    </div>
-    <div class="p-username">
-	    @<%= link_to @user.user_name, profile_path(@user.user_name) %> 
-    </div>
-		
+	<div>
+		<%#= link_to (image_tag @user.cover.url, size: "1138x350"), edit_registration_path(current_user), title: "Change Cover Picture" %>
 	</div>
+
+	<div class="p-stats">
+		<ul> 
+			<li>
+				<span class="p-avatar", title="Upload a Picture"><%= link_to (image_tag @user.avatar.url, size: "200x220"), edit_registration_path(current_user) %></span>
+			</li>
+			<li>
+				<span class="p-StatLabel p-block">Posts</span>
+				<span class="p-StatValue"><%= link_to @user.posts.count, profile_path(@user.user_name) %></span>
+			</li>
+			<li>
+				<span class="p-StatLabel p-block">Following</span>
+				<span class="p-StatValue"><%= link_to @user.following.count, following_path(@user.user_name), id: "following" %></span>
+			</li>
+			<li>
+				<span class="p-StatLabel p-block">Followers</span>
+				<span class="p-StatValue"><%= link_to @user.followers.count, followers_path(@user.user_name), id: "followers" %></span>
+			</li>
+			<li class="p-btn-padding">
+			  <%= render 'users/following/follow_button' if current_user %>
+			</li>
+		</ul>
+	</div>
+
+  <div class="p-name">
+    <%= link_to @user.full_name, profile_path(@user.user_name) %>
+  </div>
+  <div class="p-username">
+    @<%= link_to @user.user_name, profile_path(@user.user_name) %> 
+  </div>
+		
+</div>
 <!-- code end -->
 
 
 
 <!-- start Left area -->
   <li class="left">
-    <%= render 'users/following/friends_list' %>
+    <%= render 'users/profile_page/friends_list' %>
   </li>
 <!-- end Left area -->
 
 <!-- start Right area -->  
   <!-- start Post Form -->
   <li class="right">
-    <%= render 'posts/post_form' %>
+    <%= render 'posts/form' %>
   </li>
   <!-- end Post Form -->
   <!-- start Posts -->
