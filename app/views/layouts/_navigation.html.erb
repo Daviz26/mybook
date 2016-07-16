@@ -12,23 +12,35 @@
         <ul class="nav navbar-nav">
           <li><%= link_to "Profile", profile_path(current_user.user_name) %></li>
           <li><%= link_to "Photos", photos_path %></li>
+          <li><%= link_to "Upload Photo", "photos/new" %></li>
           <li><%= link_to "Friends", "/path3"  %></li>
           <li><%= link_to "Twitter", "/path3"  %></li>
           <% if current_user.admin? %>
             <li><%= link_to "Users", users_path %></li>
           <% end %>
         </ul>
-        <ul class="nav navbar-right col-md-4">
+        
+        <ul class="settings nav navbar-right col-md-4">
           <li class="col-md-8 user-name">
-            <i class="fa fa-user"></i>
-            <%= current_user.full_name.present? ? current_user.full_name : current_user.email %>
+          <i class="fa fa-user"></i>
+          <%= current_user.full_name.present? ? current_user.full_name : current_user.email %>
           </li>
-          <li class="pull-right">
-            <%= link_to('Log Out', destroy_user_session_path, class: 'btn btn-logout', method: :delete) %>
+          
+          <li class="dropdown-toggle pull-left">
+          <a href="#", title="Settings" data-toggle="dropdown" role="button"><i class='fa fa-cog'></i><span class="caret"></span></a>
+          <ul class="dropdown-menu sub-menu">
+            <li><%= link_to "Account", profile_path(current_user.user_name) %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Privacy", profile_path(current_user.user_name) %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Themes", profile_path(current_user.user_name) %></li>
+          </ul>
           </li>
+          <%= link_to('Log Out', destroy_user_session_path, class: 'btn btn-logout pull-right', method: :delete) %>
         </ul>
+       
       </div>
-    </div>
+  </div>
 </div>
 
 

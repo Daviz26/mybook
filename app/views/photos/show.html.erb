@@ -3,7 +3,7 @@
     <%= render 'photos/photo' %>
   </div>
   <div class="comments-area">
-    <span class= "pull-right"><%= link_to ("<i class='fa fa-times'></i>").html_safe, photos_path %></span>
+    <span><%= link_to ("<i class='fa fa-times pull-right'></i>").html_safe, photos_path %></span>
     <%= render 'photos/liking/likes', post: @photo %>
     <%= render 'comments/comment' %>
     <%= render 'comments/form' %>
