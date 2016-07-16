@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          
   validates :user_name, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 3, maximum: 15 }
   mount_uploader :avatar, AvatarUploader
+  mount_uploader :cover, CoverUploader
   
   has_many :photos, dependent: :destroy
   has_many :comments, dependent: :destroy
