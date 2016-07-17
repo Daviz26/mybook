@@ -7,7 +7,12 @@ class CoverUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   
   def default_url
-    "/assets/default/" + [version_name, "cover.jpg"].compact.join('_')
+    # For Heroku 
+    if Rails.env.production?
+      "default/" + [version_name, "cover.jpg"].compact.join('_')
+    else
+      "/assets/default/" + [version_name, "cover.jpg"].compact.join('_')
+    end
   end
 
   # Choose what kind of storage to use for this uploader:

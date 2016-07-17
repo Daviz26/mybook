@@ -6,17 +6,14 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   
-  #def default_url
-    #"/assets/default/" + [version_name, "avatar.jpg"].compact.join('_')
-  #end
-  
-  #def default_url
-    #if !(Rails.env.development? || Rails.env.test?)
-      #"#{Settings.asset_host}#{ActionController::Base.helpers.asset_path("images/default/" + [version_name, "avatar.jpg"].compact.join('_'))}"
-    #else
-      #ActionController::Base.helpers.asset_path("assets/default/" + [version_name, "avatar.jpg"].compact.join('_'))
-    #end
-  #end
+  def default_url
+    # For Heroku 
+    if Rails.env.production?
+      "default/" + [version_name, "avatar.jpg"].compact.join('_')
+    else
+      "/assets/default/" + [version_name, "avatar.jpg"].compact.join('_')
+    end
+  end
 
   # Choose what kind of storage to use for this uploader:
   # For Heroku
@@ -33,15 +30,12 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-   def default_url
-     # For Rails 3.1+ asset pipeline compatibility:
-    if Rails.env.production?
-      "default/" + [version_name, "avatar.jpg"].compact.join('_')
-      #"https://photobucketu.s3.amazonaws.com/uploads/photo/picture/4/Castle_Black.jpg"
-    else
-     "/assets/default/" + [version_name, "avatar.jpg"].compact.join('_')
-    end
-   end
+  # def default_url
+  #   # For Rails 3.1+ asset pipeline compatibility:
+  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  #
+  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  # end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
