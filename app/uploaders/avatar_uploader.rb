@@ -36,7 +36,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
    def default_url
      # For Rails 3.1+ asset pipeline compatibility:
     if Rails.env.production?
-      ActionController::Base.helpers.asset_path("assets/images/default/" + [version_name, "avatar.jpg"].compact.join('_'))
+      "assets/images/default/" + [version_name, "avatar.jpg"].compact.join('_')
+      #"https://photobucketu.s3.amazonaws.com/uploads/photo/picture/4/Castle_Black.jpg"
     else
      "/assets/default/" + [version_name, "avatar.jpg"].compact.join('_')
     end
