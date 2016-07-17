@@ -12,9 +12,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
   
   def default_url
     if !(Rails.env.development? || Rails.env.test?)
-      "#{Settings.asset_host}#{ActionController::Base.helpers.asset_path("default/" + [version_name, "avatar.jpg"].compact.join('_'))}"
+      "#{Settings.asset_host}#{ActionController::Base.helpers.asset_path("images/default/" + [version_name, "avatar.jpg"].compact.join('_'))}"
     else
-      ActionController::Base.helpers.asset_path("default/" + [version_name, "avatar.jpg"].compact.join('_'))
+      ActionController::Base.helpers.asset_path("assets/default/" + [version_name, "avatar.jpg"].compact.join('_'))
     end
   end
 
