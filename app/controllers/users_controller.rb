@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     def show
       @user = User.find_by(user_name: params[:user_name])
       @posts = @user.posts
-      current_user.user_name == "You"
     end
     
     def index

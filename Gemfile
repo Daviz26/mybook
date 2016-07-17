@@ -27,6 +27,7 @@ gem 'mini_magick'
 # images in production
 gem 'fog'
 
+
 # For adding Likes % Dislikes
 gem 'acts_as_votable', '~> 0.10.0'
 

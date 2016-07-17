@@ -6,8 +6,16 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   
+  #def default_url
+    #"/assets/default/" + [version_name, "avatar.jpg"].compact.join('_')
+  #end
+  
   def default_url
-    "/assets/default/" + [version_name, "avatar.jpg"].compact.join('_')
+    if !(Rails.env.development? || Rails.env.test?)
+      "#{Settings.asset_host}#{ActionController::Base.helpers.asset_path("/assets/default/" + [version_name, "avatar.jpg"].compact.join('_'))}"
+    else
+      ActionController::Base.helpers.asset_path("/assets/default/" + [version_name, "avatar.jpg"].compact.join('_'))
+    end
   end
 
   # Choose what kind of storage to use for this uploader:
